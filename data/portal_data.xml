@@ -1,0 +1,16 @@
+<odoo>
+    <data noupdate="1">
+        <record id="action_portal_employee" model="ir.actions.act_url">
+            <field name="name">My Profile</field>
+            <field name="type">ir.actions.act_url</field>
+            <field name="url">/my/employee</field>
+            <field name="target">self</field>
+        </record>
+        <record id="action_portal_attendance" model="ir.actions.act_url">
+            <field name="name">My Attendance</field>
+            <field name="type">ir.actions.act_url</field>
+            <field name="url">/my/employee/attendance</field>
+            <field name="target">self</field>
+        </record>
+    </data>
+</odoo>
