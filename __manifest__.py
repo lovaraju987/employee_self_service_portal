@@ -8,11 +8,11 @@
     "data": [
         "security/ir.model.access.csv",
         "security/portal_employee_security.xml",
+        "data/portal_data.xml",
         "views/menu.xml",
         "views/portal_layout.xml",
         "views/portal_employee_templates.xml",
         "views/portal_attendance_templates.xml",
-        "data/portal_data.xml"
     ],
     "installable": True,
     "application": True,
