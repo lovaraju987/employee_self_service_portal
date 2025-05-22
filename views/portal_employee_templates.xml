@@ -12,9 +12,11 @@
 
                 <div class="mt-4">
                     <form action="/my/employee/attendance/checkin" method="post" style="display:inline-block">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                         <button type="submit" class="btn btn-primary">Check In</button>
                     </form>
                     <form action="/my/employee/attendance/checkout" method="post" style="display:inline-block; margin-left:10px;">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                         <button type="submit" class="btn btn-danger">Check Out</button>
                     </form>
                 </div>
