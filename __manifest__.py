@@ -13,6 +13,7 @@
         "views/portal_layout.xml",
         "views/portal_employee_templates.xml",
         "views/portal_attendance_templates.xml",
+        "views/employee_form_view.xml",
     ],
     "installable": True,
     "application": True,
