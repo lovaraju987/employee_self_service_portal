@@ -13,7 +13,6 @@ class PortalEmployee(http.Controller):
     def check_in(self, **post):
         employee = request.env['hr.employee'].sudo().search([('user_id', '=', request.uid)], limit=1)
         if not employee:
-            # Optionally log or show a message
             return request.redirect('/my/employee')
         try:
             request.env['hr.attendance'].sudo().create({
@@ -21,12 +20,11 @@ class PortalEmployee(http.Controller):
                 'check_in': fields.Datetime.now(),
             })
         except Exception as e:
-            # Log the error for debugging
             import logging
             _logger = logging.getLogger(__name__)
             _logger.error("Check-in failed: %s", e)
             return request.redirect('/my/employee')
-        return request.redirect('/my/employee')
+        return request.redirect('/my/employee/attendance')
 
     @http.route('/my/employee/attendance/checkout', type='http', auth='user', methods=['POST'], website=True)
     def check_out(self, **post):
@@ -37,7 +35,7 @@ class PortalEmployee(http.Controller):
             [('employee_id', '=', employee.id)], order='check_in desc', limit=1)
         if last_attendance and not last_attendance.check_out:
             last_attendance.check_out = fields.Datetime.now()
-        return request.redirect('/my/employee')
+        return request.redirect('/my/employee/attendance')
     
     @http.route('/my/employee/attendance', type='http', auth='user', website=True)
     def portal_attendance_history(self, **kwargs):
